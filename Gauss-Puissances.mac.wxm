@@ -1,0 +1,26 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 22.04.0 ] */
+/* [wxMaxima: input   start ] */
+Basimal(Decimal,B):=block(
+    [ans:[],N,q,r,L],
+    if(Decimal<B) then (
+        q=0,
+        r:Decimal,
+        ans:append(ans,[first([r])])
+    ) else (
+        N:Decimal,
+        while (q#0) do (
+            q:first(divide(N,B)),
+            r:second(divide(N,B)),
+            ans:append([first([r])],ans),
+            N:q
+        )
+    ),
+    return(ans)
+)$
+/* [wxMaxima: input   end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 22.04.0"$
